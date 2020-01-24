@@ -1,4 +1,3 @@
-import React from 'react';
 const extractData = (response) => {
   if (!response) return {};
 
@@ -26,7 +25,10 @@ export default function fetchCurrentWeather(query) {
   return fetch(OPEN_WEATHER_MAP_URL)
               .then(res => res.json())
               .then(extractData)
-              .then((data) => {return data})
+              .then((data) => {
+                console.log(data)
+                return data
+              })
               .catch(console.log)
 
 };

@@ -1,9 +1,8 @@
 import React from 'react';
-import Search_Bar from './components/Search_Bar';
 import './App.css';
+import SearchBar from './components/SearchBar';
 import fetchForecast from './fetchForecast';
 import fetchCurrentWeather from './fetchCurrentWeather';
-import CurrentWeather from './components/Current_Weather.js';
 import WeatherCard from './components/WeatherCard.js';
 
 class App extends React.Component {
@@ -36,7 +35,6 @@ class App extends React.Component {
     fetchCurrentWeather(search_query)
       .then((currentWeatherData) => {
         this.setState({currentWeatherData,})
-        console.log(currentWeatherData)
       })
     fetchForecast(search_query)
       .then((forecastData) => {
@@ -49,13 +47,13 @@ class App extends React.Component {
     return (
       <div className="main-wrapper">
         <header id="header_text"><strong>Weather App</strong></header>
-        <Search_Bar
+        <SearchBar
           onChange={(event) => this.handleChange(event)}
           search_query={this.state.search_query}
           onClick={() => this.handleClick()}
         />
         <div className="results">
-          <WeatherCard data={this.state.data.currentWeatherData} loading={this.state.loading}/>
+          <WeatherCard data={this.state.data} loading={this.state.loading}/>
         </div>
       </div>
     )

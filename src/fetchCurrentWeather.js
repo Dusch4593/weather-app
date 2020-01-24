@@ -26,7 +26,7 @@ export default function fetchCurrentWeather(query) {
   return fetch(OPEN_WEATHER_MAP_URL)
               .then(res => res.json())
               .then(extractData)
-              .then((data) => {console.log(data)})
+              .then((data) => {return data})
               .catch(console.log)
 
 };

@@ -5,10 +5,6 @@ export default class CurrentWeather extends React.Component {
     const {
       city,
       temp,
-      hiTemp,
-      lowTemp,
-      description,
-      icon
     } = this.props;
     return (
       <div className="currentWeatherCard">

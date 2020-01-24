@@ -13,8 +13,8 @@ class App extends React.Component {
     this.state = {
       search_query: '',
       data: {
-        currentWeatherData: null,
-        forecastData: null,
+        currentWeatherData: {},
+        forecastData: {},
       },
       loading: false
     }
@@ -34,16 +34,18 @@ class App extends React.Component {
     if(!search_query) return;
     this.setState({loading: true, });
     fetchCurrentWeather(search_query)
-      .then((results) => {
-        this.setState((prevState, props) => {return{currentWeatherData: results}})
+      .then((currentWeatherData) => {
+        this.setState({currentWeatherData,})
+        console.log(currentWeatherData)
       })
     fetchForecast(search_query)
-      .then((results) => {
-        this.setState((prevState, props) => {return{forecastData: results, loading: false}})
+      .then((forecastData) => {
+        this.setState({forecastData, loading: false})
       })
 
   }
   render() {
+
     return (
       <div className="main-wrapper">
         <header id="header_text"><strong>Weather App</strong></header>
@@ -53,7 +55,7 @@ class App extends React.Component {
           onClick={() => this.handleClick()}
         />
         <div className="results">
-          <WeatherCard data={this.state.data.currentWeatherData}/>
+          <WeatherCard data={this.state.data.currentWeatherData} loading={this.state.loading}/>
         </div>
       </div>
     )

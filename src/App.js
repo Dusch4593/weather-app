@@ -34,7 +34,7 @@ class App extends React.Component {
     this.setState({loading: true, });
     fetchCurrentWeather(search_query)
       .then((currentWeatherData) => {
-        this.setState({currentWeatherData,})
+        this.setState({data:{currentWeatherData,}})
       })
     fetchForecast(search_query)
       .then((forecastData) => {
@@ -42,11 +42,13 @@ class App extends React.Component {
       })
 
   }
+
   render() {
 
     return (
       <div className="main-wrapper">
         <header id="header_text"><strong>Weather App</strong></header>
+        <p id="sub_header_text">Powered by Open Weather API</p>
         <SearchBar
           onChange={(event) => this.handleChange(event)}
           search_query={this.state.search_query}

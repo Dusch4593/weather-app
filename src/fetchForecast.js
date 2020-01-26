@@ -22,7 +22,10 @@ export default function fetchForecast(query) {
   return fetch(OPEN_WEATHER_MAP_URL)
               .then(res => res.json())
               .then(extractData)
-              .then((data) => {console.log(data)})
+              .then((data) => {
+                console.log(data)
+                return data;
+              })
               .catch(console.log)
 
 };

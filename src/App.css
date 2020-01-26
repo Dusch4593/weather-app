@@ -7,10 +7,50 @@
   pointer-events: none;
 }
 
+body {
+  text-align: center;
+  background: linear-gradient(#6488E3, #85DFEB);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+#header_text {
+  font-size: 64px;
+  font-family: Rajdhani;
+  color: #fff;
+}
+
+#sub_header_text {
+  font-family: Rajdhani;
+  font-weight: bold;
+  color: #fff;
+}
+
+#search_bar {
+  height: 4.35em;
+  width: 488px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+input[type="text"] {
+  font-size: 24px;
+}
+
+#current_weather_btn {
+  height: 4.35em;
+  width: 179px;
+  font-size: 18px;
+  font-weight: bold;
+  background: #EBC437;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .App-header {
@@ -35,4 +75,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.currentWeatherCard {
+  text-align: left;
+  border-top: solid 2px;
+  font-size: 24px;
 }

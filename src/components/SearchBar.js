@@ -3,8 +3,9 @@ import React from 'react';
 export default class SearchBar extends React.Component {
   render(){
     return(
-      <div id="search_bar">
-        <input type="text"
+      <div>
+        <input id="search_bar"
+               type="text"
                value={this.props.search_query}
                onChange={this.props.onChange}
                onKeyPress={(event) => {

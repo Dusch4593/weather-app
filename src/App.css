@@ -1,3 +1,6 @@
+* {
+  font-size: 1em;
+}
 .App {
   text-align: center;
 }
@@ -33,24 +36,30 @@ body {
 }
 
 #search_bar {
-  height: 4.35em;
-  width: 488px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  padding: 0.3125em 0 0 0;
+}
+
+#search_input {
+  height: inherit;
+  width: 20.5em;
+  border-top-left-radius: 0.625em;
+  border-bottom-left-radius: 0.625em;
+  vertical-align: top;
 }
 
 input[type="text"] {
-  font-size: 24px;
+  font-size: 1.5em;
 }
 
 #current_weather_btn {
-  height: 4.35em;
-  width: 179px;
-  font-size: 18px;
-  font-weight: bold;
+  height: inherit;
+  margin-top: 0.0625em;
+  width: 8.25em;
+  font-size: 1.5em;
   background: #EBC437;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-top-right-radius: 0.625em;
+  border-bottom-right-radius: 0.625em;
+  vertical-align: top;
 }
 
 .App-header {
@@ -78,7 +87,15 @@ input[type="text"] {
 }
 
 .currentWeatherCard {
-  text-align: left;
+  text-align: center;
   border-top: solid 2px;
+  margin-top: 0.3125em;
   font-size: 24px;
+  width: 25%;
+}
+
+footer {
+  width: 100%;
+  bottom: 0.625em;
+  position: fixed;
 }

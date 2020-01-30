@@ -1,5 +1,6 @@
 import React from 'react';
 import CurrentWeather from "./Current_Weather";
+import Forecast from "./Forecast.js";
 
 
 export default class WeatherCard extends React.Component {
@@ -7,14 +8,14 @@ export default class WeatherCard extends React.Component {
     const {data} = this.props
 
     return (
-      <CurrentWeather
-        city={data.currentWeatherData.city}
-        temp={data.currentWeatherData.temp}
-        hiTemp={data.currentWeatherData.hiTemp}
-        lowTemp={data.currentWeatherData.lowTemp}
-        description={data.currentWeatherData.description}
-        icon={data.currentWeatherData.icon}
-      />
+      <div className="weather_section">
+        <CurrentWeather
+          data={data.currentWeatherData}
+        />
+        <Forecast
+          data={data.forecastData}
+        />
+      </div>
     )
   }
 }

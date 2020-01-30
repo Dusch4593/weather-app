@@ -4,6 +4,8 @@ import SearchBar from './components/SearchBar';
 import fetchForecast from './fetchForecast';
 import fetchCurrentWeather from './fetchCurrentWeather';
 import WeatherCard from './components/WeatherCard.js';
+import CurrentWeather from './components/Current_Weather.js';
+import Forecast from './components/Forecast.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,7 +15,7 @@ class App extends React.Component {
       search_query: '',
       data: {
         currentWeatherData: {},
-        forecastData: {},
+        forecastData: [],
       },
       loading: false
     }
@@ -28,23 +30,40 @@ class App extends React.Component {
     })
   }
 
+
+
   handleClick() {
     const {search_query} = this.state;
     if(!search_query) return;
     this.setState({loading: true, });
     fetchCurrentWeather(search_query)
       .then((currentWeatherData) => {
-        this.setState({data:{currentWeatherData,}})
+        this.setState({data: {currentWeatherData,}})
+        console.log(this.state.data.currentWeatherData);
+        console.log(this.state.loading);
       })
+
     fetchForecast(search_query)
       .then((forecastData) => {
-        this.setState({forecastData, loading: false})
+        this.setState({
+          data: Object.assign(this.state.data.forecastData, {forecastData,})
+        })
+        console.log(this.state.data.forecastData);
+        console.log(this.state.loading);
       })
+
+    this.setState({loading: false,});
+      // .then((forecastData) => {
+      //   this.setState({data:{forecastData,}})
+      //   console.log(this.state.data.forecastData);
+      //   console.log(this.state.loading);
+      // })
+
+
 
   }
 
   render() {
-
     return (
       <div className="main-wrapper">
         <header id="header_text"><strong>Weather App</strong></header>
@@ -57,6 +76,7 @@ class App extends React.Component {
         <div className="results">
           <WeatherCard data={this.state.data} loading={this.state.loading}/>
         </div>
+        <footer>Brandon Dusch 2020</footer>
       </div>
     )
   }

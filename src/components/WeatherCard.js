@@ -6,7 +6,6 @@ import Forecast from "./Forecast.js";
 export default class WeatherCard extends React.Component {
   render() {
     const {data} = this.props
-
     return (
       <div className="weather_section">
         <CurrentWeather

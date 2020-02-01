@@ -15,7 +15,7 @@ class App extends React.Component {
       search_query: '',
       data: {
         currentWeatherData: {},
-        forecastData: [],
+        forecastData: {},
       },
       loading: false
     }
@@ -38,7 +38,9 @@ class App extends React.Component {
     this.setState({loading: true, });
     fetchCurrentWeather(search_query)
       .then((currentWeatherData) => {
-        this.setState({data: {currentWeatherData,}})
+        this.setState({
+          data: {...this.state.data, currentWeatherData}
+        })
         console.log(this.state.data.currentWeatherData);
         console.log(this.state.loading);
       })
@@ -46,21 +48,12 @@ class App extends React.Component {
     fetchForecast(search_query)
       .then((forecastData) => {
         this.setState({
-          data: Object.assign(this.state.data.forecastData, {forecastData,})
+          data: Object.assign(this.state.data, {...this.state.data, forecastData})
         })
         console.log(this.state.data.forecastData);
         console.log(this.state.loading);
       })
-
     this.setState({loading: false,});
-      // .then((forecastData) => {
-      //   this.setState({data:{forecastData,}})
-      //   console.log(this.state.data.forecastData);
-      //   console.log(this.state.loading);
-      // })
-
-
-
   }
 
   render() {

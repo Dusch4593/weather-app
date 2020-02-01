@@ -5,11 +5,10 @@ export default class Forecast extends React.Component {
   render() {
       let {data} = this.props;
       let city = data.city;
-      let forecast = data.forecast;
+      let forecast = data.forecastData;
     return (
       <div>
         {city}
-        {forecast}
       </div>
     )
   }

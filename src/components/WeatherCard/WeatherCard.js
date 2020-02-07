@@ -1,15 +1,16 @@
 import React from 'react';
-import CurrentWeather from "./CurrentWeather";
-import Forecast from "./Forecast.js";
-import fetchForecast from '../fetchForecast';
-import fetchCurrentWeather from '../fetchCurrentWeather';
+import SearchBar from "../SearchBar/SearchBar"
+import CurrentWeather from "../CurrentWeather/CurrentWeather";
+import Forecast from "../Forecast/Forecast.js";
+import fetchForecast from '../../fetchForecast';
+import fetchCurrentWeather from '../../fetchCurrentWeather';
 
 
 export default class WeatherCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      search_query: '',
+      searchQuery: '',
       data: {
         currentWeather: {},
         forecast: {}
@@ -23,7 +24,7 @@ export default class WeatherCard extends React.Component {
 
   handleChange(event) {
     this.setState({
-      search_query: event.target.value,
+      searchQuery: event.target.value,
     })
   };
 
@@ -35,7 +36,7 @@ export default class WeatherCard extends React.Component {
     fetchCurrentWeather(searchQuery)
       .then((currentWeatherData) => {
         this.setState(prevState => ({
-          data: {...prevState, currentWeatherData}
+          data: {...prevState.data, currentWeatherData}
         }), () => {
           console.log(this.state.data.currentWeather);
           console.log(this.state.loading);
@@ -45,7 +46,7 @@ export default class WeatherCard extends React.Component {
     fetchForecast(searchQuery)
       .then((forecastData) => {
         this.setState({
-          data: Object.assign(this.state.data, {forecast: forecastData}),
+          data: Object.assign(this.state.data, forecastData),
           loading: false
         }, () => {
           console.log(this.state.data.forecast);
@@ -53,19 +54,27 @@ export default class WeatherCard extends React.Component {
         })
 
     });
-
   }
   render() {
-    const {data} = this.props
     return (
-      <div className="weather_section">
-        <CurrentWeather
-          data={data.currentWeather}
-        />
-        <Forecast
-          data={data.forecast}
-        />
+      <div className="mainContainer">
+        <div className="searchBar">
+          <SearchBar
+            searchQuery = {this.state.searchQuery}
+            onChange={this.handleChange}
+            onClick={this.handleClick}
+          />
+        </div>
+        <div className="weatherSection">
+          <CurrentWeather
+            data={this.state.data.currentWeather}
+          />
+          <Forecast
+            data={this.state.data.forecast}
+          />
+        </div>
       </div>
+
     )
   }
 }

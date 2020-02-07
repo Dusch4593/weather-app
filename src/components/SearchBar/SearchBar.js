@@ -6,7 +6,7 @@ export default class SearchBar extends React.Component {
       <div id="search_bar">
         <input id="search_input"
                type="text"
-               value={this.props.search_query}
+               value={this.props.searchQuery}
                onChange={this.props.onChange}
                onKeyPress={(event) => {
                  if(event.key === "Enter"){

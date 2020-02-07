@@ -1,5 +1,5 @@
 import React from 'react';
-import kelvinToFahrenheit from '../kelvinToFahrenheit.js';
+import kelvinToFahrenheit from '../../kelvinToFahrenheit.js';
 
 export default class Forecast extends React.Component {
 

@@ -11,7 +11,6 @@
 }
 
 body {
-  text-align: center;
   background: linear-gradient(#6488E3, #85DFEB);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -21,6 +20,10 @@ body {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+#header_text, #sub_header_text, #search_bar {
+  text-align: center;
 }
 
 #header_text {
@@ -42,6 +45,7 @@ body {
 #search_input {
   height: inherit;
   width: 20.5em;
+  padding-left: 5px;
   border-top-left-radius: 0.625em;
   border-bottom-left-radius: 0.625em;
   vertical-align: top;
@@ -86,13 +90,7 @@ input[type="text"] {
   }
 }
 
-.currentWeatherCard {
-  text-align: center;
-  border-top: solid 2px;
-  margin-top: 0.3125em;
-  font-size: 24px;
-  width: 25%;
-}
+
 
 footer {
   width: 100%;

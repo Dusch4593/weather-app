@@ -7,6 +7,7 @@ const extractData = (response) => {
   let regex = /00:00:00/g;
 
   const city = weatherData.city.name;
+  console.log(weatherData.list)
   const forecast = weatherData.list.filter((dataPoint) => (regex.test(dataPoint.dt_txt)));
 
 

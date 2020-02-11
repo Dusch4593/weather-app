@@ -1,7 +1,7 @@
 import React from 'react';
-import SearchBar from "../SearchBar/SearchBar"
-import CurrentWeather from "../CurrentWeather/CurrentWeather";
-import Forecast from "../Forecast/Forecast.js";
+import SearchBar from "./SearchBar/SearchBar"
+import CurrentWeather from "./CurrentWeather/CurrentWeather";
+import Forecast from "./Forecast/Forecast.js";
 import fetchForecast from '../../fetchForecast';
 import fetchCurrentWeather from '../../fetchCurrentWeather';
 
@@ -35,21 +35,22 @@ export default class WeatherCard extends React.Component {
     this.setState({loading: true, });
     fetchCurrentWeather(searchQuery)
       .then((currentWeatherData) => {
+        console.log(this.state.data)
         this.setState(prevState => ({
-          data: {...prevState.data, currentWeatherData}
+          data: {...prevState.data, currentWeather: currentWeatherData}
         }), () => {
-          console.log(this.state.data.currentWeather);
+          console.log(this.state.data);
           console.log(this.state.loading);
         })
     });
 
     fetchForecast(searchQuery)
       .then((forecastData) => {
-        this.setState({
-          data: Object.assign(this.state.data, forecastData),
-          loading: false
-        }, () => {
-          console.log(this.state.data.forecast);
+        this.setState(prevState => ({
+          data: {...prevState.data, forecast: forecastData},
+          loading: false,
+        }), () => {
+          console.log(this.state.data);
           console.log(this.state.loading);
         })
 

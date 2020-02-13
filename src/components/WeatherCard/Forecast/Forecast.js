@@ -2,16 +2,16 @@ import React from 'react';
 import kelvinToFahrenheit from '../../../kelvinToFahrenheit.js';
 import classes from './Forecast.module.css';
 
+
+const ForecastDayCard = (props) => null;
+
 export default class Forecast extends React.Component {
-
   render() {
-    let {data, city} = this.props;
+    let {data} = this.props;
     if(!data.city) return null;
-    let dates = [];
-    data.forecast.forEach(date => {
-
-      dates.push(getDayOfWeek(date.dt_txt) + " ");
-    });
+    let city = data.city;
+    const forecastDayCards = data.forecast.map(weather => <ForecastDayCard key={weather.dt_txt}/>);
+    console.log(forecastDayCards);
 
     function getDayOfWeek(date) {
       let day = '';
@@ -38,6 +38,8 @@ export default class Forecast extends React.Component {
         case 6:
           day += "Saturday";
           break;
+        default:
+          break;
       }
       return day;
     }
@@ -51,7 +53,7 @@ export default class Forecast extends React.Component {
           5-Day Forecast for {city}
         </div>
         <div>
-        {dates}
+          {forecastDayCards}
         </div>
       </div>
     )

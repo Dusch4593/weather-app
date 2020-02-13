@@ -66,6 +66,10 @@ input[type="text"] {
   vertical-align: top;
 }
 
+.main_wrapper {
+  
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

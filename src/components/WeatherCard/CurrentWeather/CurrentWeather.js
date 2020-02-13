@@ -25,7 +25,7 @@ export default class CurrentWeather extends React.Component {
           Hi: {hiTemp}&#730; | Low: {lowTemp}&#730;
         </div>
         <div className="weatherIcon">
-          <img src={iconLink}/>
+          <img alt="weather icon" src={iconLink}/>
         </div>
         <div className="description">
           {description}

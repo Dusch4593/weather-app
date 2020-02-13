@@ -1,12 +1,11 @@
 import React from 'react';
 import classes from './App.css';
-import SearchBar from './WeatherCard/SearchBar/SearchBar.js';
 import WeatherCard from './WeatherCard/WeatherCard.js';
 
 class App extends React.Component {
   render() {
     return (
-      <div className={"main_wrapper"}>
+      <div className={classes.main_wrapper}>
         <header id="header_text"><strong>Weather App</strong></header>
         <p id="sub_header_text">Powered by Open Weather API</p>
         <WeatherCard className="weatherCard" />

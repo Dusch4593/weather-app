@@ -4,6 +4,7 @@ import CurrentWeather from "./CurrentWeather/CurrentWeather";
 import Forecast from "./Forecast/Forecast.js";
 import fetchForecast from '../../fetchForecast';
 import fetchCurrentWeather from '../../fetchCurrentWeather';
+import classes from './WeatherCard.module.css';
 
 
 export default class WeatherCard extends React.Component {
@@ -66,7 +67,7 @@ export default class WeatherCard extends React.Component {
             onClick={this.handleClick}
           />
         </div>
-        <div className="weatherSection">
+        <div className={classes.wrapper}>
           <CurrentWeather
             data={this.state.data.currentWeather}
           />

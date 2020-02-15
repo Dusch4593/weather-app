@@ -1,7 +1,22 @@
-.forecastCard {
+.forecastWrapper {
+  display: grid;
   text-align: center;
+  align-content: center;
+  margin-left: 3em;
+}
+
+.card {
+  margin: 0;
+  padding: 1rem;
+  margin: 0.5rem;
+  border: 1px grey solid;
+  border-radius: 10%;
 }
 
 .dates {
   border: solid;
+}
+
+.dayCards {
+  display: flex;
 }

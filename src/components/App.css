@@ -67,7 +67,7 @@ input[type="text"] {
 }
 
 .main_wrapper {
-  
+
 }
 
 .App-header {
@@ -100,4 +100,5 @@ footer {
   width: 100%;
   bottom: 0.625em;
   position: fixed;
+  text-align: center;
 }

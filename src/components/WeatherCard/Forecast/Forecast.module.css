@@ -7,9 +7,9 @@
 
 .card {
   margin: 0;
-  padding: 1rem;
+  padding: 2.5em 1rem 2.5em 1rem;
   margin: 0.5rem;
-  border: 1px grey solid;
+  border: 1.5px grey solid;
   border-radius: 10%;
 }
 

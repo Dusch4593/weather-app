@@ -7,9 +7,7 @@ const extractData = (response) => {
   let regex = /00:00:00/g;
 
   const city = weatherData.city.name;
-  console.log(weatherData.list)
   const forecast = weatherData.list.filter((dataPoint) => (regex.test(dataPoint.dt_txt)));
-
 
   return {
     city,
@@ -23,10 +21,7 @@ export default function fetchForecast(query) {
   return fetch(OPEN_WEATHER_MAP_URL)
               .then(res => res.json())
               .then(extractData)
-              .then((data) => {
-                console.log(data)
-                return data;
-              })
+              .then((data) => {return data})
               .catch(console.log)
 
 };

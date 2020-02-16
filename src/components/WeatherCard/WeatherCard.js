@@ -36,13 +36,9 @@ export default class WeatherCard extends React.Component {
     this.setState({loading: true, });
     fetchCurrentWeather(searchQuery)
       .then((currentWeatherData) => {
-        console.log(this.state.data)
         this.setState(prevState => ({
           data: {...prevState.data, currentWeather: currentWeatherData}
-        }), () => {
-          console.log(this.state.data);
-          console.log(this.state.loading);
-        })
+        }));
     });
 
     fetchForecast(searchQuery)
@@ -50,10 +46,7 @@ export default class WeatherCard extends React.Component {
         this.setState(prevState => ({
           data: {...prevState.data, forecast: forecastData},
           loading: false,
-        }), () => {
-          console.log(this.state.data);
-          console.log(this.state.loading);
-        })
+        }));
 
     });
   }

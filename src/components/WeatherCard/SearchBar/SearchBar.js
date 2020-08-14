@@ -1,23 +1,22 @@
 import React from 'react';
 
-export default class SearchBar extends React.Component {
-  render(){
+const SearchBar = props => {
     return(
       <div id="search_bar">
         <input id="search_input"
                type="text"
-               value={this.props.searchQuery}
-               onChange={this.props.onChange}
+               value={props.searchQuery}
+               onChange={props.onChange}
                onKeyPress={(event) => {
                  if(event.key === "Enter"){
-                   this.props.onClick();
+                   props.onClick();
                  }
                }}
                placeholder="Enter city..."
         />
-        <button id="current_weather_btn" onClick={this.props.onClick}>Get Weather</button>
+        <button id="current_weather_btn" onClick={props.onClick}>Get Weather</button>
       </div>
     )
-  }
-
 }
+
+export default SearchBar

@@ -6,7 +6,6 @@ export default class CurrentWeather extends React.Component {
   render() {
     let {data} = this.props;
     if(!data.temp) return null;
-
     let city = data.city;
     let description = data.description;
     let temp = kelvinToFahrenheit(data.temp).toFixed(1);

@@ -1,5 +1,5 @@
 const extractData = (response) => {
-  if (!response) return {};
+  if (!response || response.results.cod === "404") return {};
 
   const weatherData = response.results;
   const city = weatherData.name;
@@ -27,5 +27,4 @@ export default function fetchCurrentWeather(query) {
               .then(extractData)
               .then((data) => {return data})
               .catch(console.log)
-
 };

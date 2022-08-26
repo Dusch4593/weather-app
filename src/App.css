@@ -57,7 +57,6 @@ input[type="text"] {
 
 #current_weather_btn {
   height: inherit;
-  margin-top: 0.0625em;
   width: 8.25em;
   font-size: 1.5em;
   background: #EBC437;

@@ -1,6 +1,6 @@
 const extractData = (response) => {
   if (!response) return {};
-
+  if(response.results.cod === "404") return {}
   const weatherData = response.results;
   // Filter out all the data points in weatherData.list whose dt_txt field reads "XX20-XX-XX 00:00:00" and store in weatherInfo
   // get weather info

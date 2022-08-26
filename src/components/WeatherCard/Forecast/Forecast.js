@@ -9,8 +9,15 @@ import classes from './Forecast.module.css';
 export default class Forecast extends React.Component {
   render() {
     let {data} = this.props;
-    if(!data.city) return null;
-    let city = data.city;
+    if(Object.entries(data).length === 0 || data === undefined) {
+      return (
+        <>
+          <p>Forcast for search query not found.</p>
+        </>
+      );
+    }
+
+    let city = data.city
 
     const forecastDayCards = data.forecast.map(item => (
       <div key={item.dt_txt} className={classes.card}>

@@ -9,7 +9,7 @@ class App extends React.Component {
         <header id="header_text"><strong>Weather App</strong></header>
         <p id="sub_header_text">Powered by Open Weather API</p>
         <WeatherCard className="weatherCard" />
-        <footer>Brandon Dusch 2020</footer>
+        <footer>Brandon Dusch {new Date().getFullYear()}</footer>
       </div>
     )
   }

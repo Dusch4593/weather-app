@@ -5,8 +5,16 @@ import classes from './CurrentWeather.module.css';
 export default class CurrentWeather extends React.Component {
   render() {
     let {data} = this.props;
-    if(!data.temp) return null;
-    let city = data.city;
+
+    if((Object.entries(data).length === 0 || data === undefined) && this.props.searchBarClicked) {
+      return (
+        <>
+          <p>Current Weather for {this.props.searchQuery} not found.</p>
+        </>
+      )
+    };
+
+    let city = data.city
     let description = data.description;
     let temp = kelvinToFahrenheit(data.temp).toFixed(1);
     let hiTemp = kelvinToFahrenheit(data.hiTemp).toFixed(1);
@@ -31,6 +39,5 @@ export default class CurrentWeather extends React.Component {
         </div>
       </div>
     )
-
   }
 }
